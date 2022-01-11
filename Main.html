@@ -1,0 +1,1597 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://yosephalves.github.io/CrackedOctopusClub/img/logo-octa.png" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=10.0,user-scalable=no">
+    <meta name="theme-color" content="#000000" />
+    <title>COC</title>
+    
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json" />
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    
+</head>
+    
+<body>   
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+
+
+<!-- optional -->
+
+<script>
+document
+  .querySelectorAll("a")
+  .forEach((el) => el.addEventListener("click", (ev) => ev.preventDefault()));
+    
+</script>
+
+    
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&amp;display=swap');
+    
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Consolas, monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #384190;
+}
+
+code {
+      font-family: 'Poppins', Consolas, monospace;
+
+}    
+    
+/*menu*/ 
+
+*{text-decoration:none; list-style:none; margin:0px; padding:0px; outline:none;top: 0;}
+section{width:100%; margin:0px auto; display:table; position:relative;}
+h1{margin:0px auto; display:table; font-size:26px; padding:40px 0px; color:#002e5b; text-align:center;}
+h1 span{font-weight:500;}
+
+header {
+    background-color: rgb(25 27 45);
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+#logo{float:left;
+    font-size:22px;
+    line-height: 1.7;
+    text-transform:uppercase;
+    color:#ffffff;
+    font-weight:600;
+    padding:19px 7px;
+    margin-left: 10px
+}
+nav{width:auto; float:right;}
+nav ul{display:table; float:right;}
+nav ul li{float:left;}
+nav ul li:last-child{padding-right:0px;}
+nav ul li a{color:rgba(214, 214, 214, 0.7); font-size:18px; padding: 19px 20px; display:inline-block; transition: all 0.5s ease 0s;}
+nav ul li a:hover{background-color:#d8d8d8; color:#000000;transition: all 0.5s ease 0s;}
+nav ul li a:hover i{color:#fde428; transition: all 0.5s ease 0s;}
+nav ul li a i{padding-right:10px; color:#002e5b; transition: all 0.5s ease 0s;}
+
+label.toggle-menu {
+    padding-right: 10px;
+}
+.toggle-menu ul{display:table; width:25px;}
+.toggle-menu ul li{width:100%; height:3px; background-color:#002e5b; margin-bottom:4px;}
+.toggle-menu ul li:last-child{margin-bottom:0px;}
+
+input[type=checkbox], label{display:none;}
+
+.content{display:table; margin:0px;}
+.content h2{font-size:18px; font-weight:500; color:#002e5b; display:table; padding-bottom:10px; margin: 0 auto; margin-bottom:10px;}
+.content p{font-size:14px; line-height:22px; color:#7c7c7c; text-align:justify; }
+
+footer{display:table; padding-bottom:30px; width:100%;}
+.social{margin:0px auto; display:table; display:table;}
+.social li{float:left; padding:0px 10px;}
+.social li a{color:#002e5b; transition: all 0.5s ease 0s;}
+.social li a:hover{color:#fde428; transition: all 0.5s ease 0s;}
+
+.menu{
+    position:sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    border-bottom: 1px solid #e1e1e1;
+    max-width: 1000px;
+    margin: auto;
+    height: 65px;
+}
+.menu > div{
+    max-width: 1200px;
+    justify-content: center;
+}    
+
+#fundo{height: 600px auto}
+
+/* initially hide animatable objects */
+.animatable {
+  visibility: hidden;
+  -webkit-animation-play-state: paused;        
+  -moz-animation-play-state: paused;     
+  -ms-animation-play-state: paused;
+  -o-animation-play-state: paused;   
+  animation-play-state: paused; 
+}
+
+/* show objects being animated */
+.animated {
+  visibility: visible;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+  -ms-animation-play-state: running;
+  -o-animation-play-state: running;
+  animation-play-state: running;
+}
+
+/* CSS Animations (extracted from http://glifo.uiparade.com/) */
+
+@-o-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-o-transform: translateY(20px);
+	}
+
+	100% {
+		opacity: 1;
+		-o-transform: translateY(0);
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}  
+.animated.fadeInUp {
+	-webkit-animation-name: fadeInUp;
+	-moz-animation-name: fadeInUp;
+	-o-animation-name: fadeInUp;
+	animation-name: fadeInUp;
+}
+.block {
+  width: 30em;
+  margin: 1em auto;
+}
+.block-left {
+  width: 30em;
+  margin: 1em auto;
+  text-align: left;
+}
+.block-rigth {
+  width: 30em;
+  margin: 1em auto;
+  text-align: right;
+}
+.topo{
+    width: 85%;
+    right: 0%;
+    top: -165px;
+}   
+
+/**
+ * Função tint
+ * "Mistura" a cor desejada com o branco em certa proporção (percentage).
+ **/
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Variáveis de cores
+$bg-facebook: #3b5998;
+$bg-youtube: #ed302f;
+$bg-twitter: #55acee;
+$bg-whatsapp: #4bc75a;
+$bg-googleplus: #dd4b39;
+$bg-instagram: #2e5e86;
+$bg-linkedin: #0082ca;
+$bg-pinterest: #c61118;
+$bg-snapchat: #e8d934;
+$bg-telegram: #279fd3;
+
+.btn-social{
+  cursor: pointer;
+}
+
+.btn-social {
+  color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0.2em;
+  font-size: 16px;
+}
+
+.btn-social:hover {
+  color: #fff;
+  box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.18),
+  0 4px 13px 0 rgba(0, 0, 0, 0.15);
+    transform: scale(1.2)
+}
+
+/***Background dos botões***/
+
+.btn-twitter {
+  background-color: #55acee;
+}
+
+.btn-instagram {
+  background-color: #2e5e86;
+}
+
+.btn-twitter:hover {
+  background-color: tint($bg-twitter, 20%);
+}
+
+.btn-instagram:hover {
+  background-color: tint($bg-instagram, 20%);
+}
+
+/**
+ * Utilitários
+ */
+
+.btn-round {
+  border-radius: 50%;
+}
+
+.btn-icon-only {
+  height: 45px;
+  width: 45px;
+  padding: 8px;
+  text-align: center;
+  line-height: 1.6;
+}
+      
+.redes{
+    position: absolute;
+    top:70px;
+    z-index: 1;
+    margin: 0 auto;
+    margin-left: 38%;
+    margin-right: 38%;
+    float: left;
+    margin-left: 5%;
+}
+.container{
+    max-width: 540px;
+}
+.texto{
+    max-width: 700px;
+    margin: 2% auto;
+}
+p.texto{
+    color: white;
+}
+.content h2{
+    font-size: 22px;
+    font-weight: 600;
+    color: white
+}
+.content p{
+    color: white;
+}
+    
+/* 1 */
+.castelo {
+    max-height: 1604.1513px;
+    max-width: 100%;
+    margin: 0 auto;
+    width: -moz-fit-content;
+    height: fit-content;
+    background: linear-gradient(#384190 0%, #2F3674 30%, #272C5A 35%, #202546 40%, #1B1F38 45%, #191C2F 55%, #181B2D 60%, #050612 75%);
+}
+    
+/* 4 */
+.castelo > img{
+    max-height: 1604.1513px;
+        width: auto;
+
+    text-align: center;
+    vertical-align: middle;
+}
+    
+div .texto{
+    font-family: 'Poppins', Consolas, monospace;
+    font-size: 2.8vh;
+    line-height: 3vh;
+    color: white;
+}
+.final{
+    background: #050612;
+}
+.wrapper{
+    background: none;
+        height: auto;
+}
+#portfolio{
+    background-color: #384190;
+}
+.conteudo{
+    height: 55vh;
+    top: 0px;
+    background-color: #384190
+}
+body, #page {
+    overflow-x: hidden;
+}
+.flickity-page-dots .dot {
+    display: inline-block;
+    width: 30px;
+    height: 7px;
+    margin: 0 8px;
+    background: #ffffff;
+    border-radius: 0%;
+    filter: alpha(opacity=10);
+    opacity: 0.25;
+    cursor: pointer;
+}
+li.dot.is-selected {
+    background: rgb(255 219 0);
+    opacity: 0.7;
+}
+.flickity-page-dots {
+    margin: 0 auto;
+    text-align: center;
+}
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.gallery {
+    background-color: #384190;
+    
+}
+.gallery-cell {
+  width: 25%;
+  height: 25vh;  margin-right: 20px;
+  transition: transform .2s; /* Animation */
+}
+.gallery-cell:hover {
+  transform: scale(1.04); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.gallery-cell img {
+    position: relative;
+    top: 20px;
+    border-radius: 22px;
+    width: 100%
+}
+    
+.flickity-prev-next-button.next {
+    background: none;
+}
+.flickity-prev-next-button .arrow {
+    display: none;
+}
+
+button {
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 2px;
+    background: transparent;
+    line-height: 1;
+    cursor: auto;
+}
+.cromos{
+width: 19%;
+display: inline-flex;
+font-size: 15px;
+    font-family: 'Poppins', Consolas, monospace;
+} 
+.cromos img{
+width: 100%;
+} 
+    
+.flip-card-3D-wrapper {
+width: 90%;
+max-width: 262.5px;
+height: 250px;
+position: relative;
+-o-perspective: 1000px;
+-webkit-perspective: 1000px;
+-ms-perspective: 1000px;
+perspective: 1000px;
+margin: 0 auto;
+}
+.flip-card {
+width: 100%;
+height: 100%;
+text-align: center;
+margin: 0px auto;
+position: absolute;
+-o-transition: all 0.8s ease-in-out;
+-webkit-transition: all 0.8s ease-in-out;
+-ms-transition: all 0.8s ease-in-out;
+transition: all 0.8s ease-in-out;
+-o-transform-style: preserve-3d;
+-webkit-transform-style: preserve-3d;
+-ms-transform-style: preserve-3d;
+transform-style: preserve-3d;
+}
+.do-flip {
+-o-transform: rotateY(-180deg);
+-webkit-transform: rotateY(-180deg);
+-ms-transform: rotateY(-180deg);
+transform: rotateY(-180deg);
+}
+.flip-card-btn-turn-to-back, .flip-card-btn-turn-to-front {
+position: absolute;
+width: 100%;
+height: 100%;
+cursor: pointer;
+visibility: hidden;
+padding: 0;
+}
+
+.flip-card .flip-card-front, .flip-card .flip-card-back{
+width: 100%;
+position: absolute;
+-o-backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+-ms-backface-visibility: hidden;
+backface-visibility: hidden;
+z-index: 2;
+}
+.flip-card .flip-card-front {
+
+}
+.flip-card .flip-card-back {
+-o-transform: rotateY(180deg);
+-webkit-transform: rotateY(180deg);
+-ms-transform: rotateY(180deg);
+transform: rotateY(180deg);
+}
+.flip-card .flip-card-front p, .flip-card .flip-card-back p {
+color: grey;
+display: block;
+position: absolute;
+top: 40%;
+width: 100%;
+}
+    
+.data {
+    font-size: 35px;
+    line-height: 20px;
+    line-height: 40px;
+    color: white;
+}
+    
+.cap {
+    font-size: 30px;
+}    
+    
+#altura-contact{
+    background: #050612;height: 150px;margin-top: -50px
+}    
+#home{z-index: -2;}
+#inicio{
+    height: 200px;background-color: none; margin-top: -90px
+}    
+
+#first-section{
+        margin-bottom: -10px;
+}
+.txt-geral{
+     position: absolute;
+    text-align: left;
+}
+#texto-01{
+    top:5%;
+    left: 30%;
+}
+#texto-02{
+    top:15%;
+    left: 30%;
+}
+#texto-03{
+    top:25%;
+    left: 30%;
+}
+#texto-04{
+    top:45%;
+    left: 45%;
+}
+#texto-05{
+    position: absolute;
+    top:60%;
+    left: 45%;
+}
+#texto-06{
+    position: absolute;
+    top:75%;
+    left: 45%;
+}
+#texto-07{
+    position: absolute;
+    top:90%;
+    left: 45%;
+}
+    
+@media only screen and (min-width: 1200px) {
+
+.flickity-viewport{
+    height: 55vh !important;
+}
+}
+    
+@media only screen and (max-width: 1200px) {
+#texto-01{
+    top:5%;
+    left: 35%;
+}
+#texto-02{
+    top:15%;
+    left: 35%;
+}
+#texto-03{
+    top:25%;
+    left: 35%;
+}
+#texto-04{
+    top:45%;
+    left: 50%;
+}
+#texto-05{
+    position: absolute;
+    top:60%;
+    left: 50%;
+}
+#texto-06{
+    position: absolute;
+    top:75%;
+    left: 50%;
+}
+#texto-07{
+    position: absolute;
+    top:90%;
+    left: 50%;
+}
+.conteudo {
+    height: 45vh;
+}
+.flickity-viewport{
+    height: 45vh !important;
+}
+.cap {
+    font-size: 28px;
+}  
+}
+
+@media only screen and (max-width: 980px) {
+header{padding:20px 0px;}
+#logo{padding:0px;}
+input[type=checkbox] {position: absolute; top: -9999px; left: -9999px; background:none;}
+input[type=checkbox]:fous{background:none;}
+label {float:right; padding:8px 0px; display:inline-block; cursor:pointer; }
+input[type=checkbox]:checked ~ nav {display:block;}
+
+nav{display:none; position:absolute; right:0px; top:65px; background-color:#002e5b; padding:0px; z-index:99;}
+nav ul{width:auto;}
+nav ul li{float:none; padding:0px; width:100%; display:table;}
+nav ul li a{color:#FFF; font-size:15px; padding:19px 20px; display:block; border-bottom: 1px solid rgba(225,225,225,0.1);}
+nav ul li a i{color:#fde428; padding-right:13px;}
+nav ul {
+    width: auto;
+    margin: 0 auto;
+}
+.conteudo {
+    height: 35vh;
+}
+#logo {
+    line-height: 1.7;
+    font-size: 22px;
+}
+.topo{
+    width: 90%;
+    right: 0%;
+}
+#texto-01{
+    top:5%;
+    left: 40%;
+}
+#texto-02{
+    top:15%;
+    left: 40%;
+}
+#texto-03{
+    top:25%;
+    left: 40%;
+}
+#texto-04{
+    top:45%;
+    left: 60%;
+}
+#texto-05{
+    position: absolute;
+    top:60%;
+    left: 60%;
+}
+#texto-06{
+    position: absolute;
+    top:75%;
+    left: 60%;
+}
+#texto-07{
+    position: absolute;
+    top:90%;
+    left: 60%;
+}
+.flickity-viewport{
+    height: 40vh !important;
+}
+.cap {
+    font-size: 26px;
+}  
+}
+  
+@media only screen and (max-width: 830px) {
+
+.txt-geral p{
+    font-size: 18px;
+    top:5%;
+    left: 10%;
+}
+#texto-01{
+        font-size: 10px;
+    top:5%;
+    left: 50%;
+}
+#texto-02{
+    top:15%;
+    left: 50%;
+}
+#texto-03{
+    top:25%;
+    left: 50%;
+}
+#texto-04{
+    top:50%;
+    left: 60%;
+}
+#texto-05{
+    position: absolute;
+    top:60%;
+    left: 60%;
+}
+#texto-06{
+    position: absolute;
+    top:75%;
+    left: 60%;
+}
+#texto-07{
+    position: absolute;
+    top:90%;
+    left: 60%;
+}
+.flickity-viewport{
+    height: 35vh !important;
+}
+.txt-geral p{
+    font-size: 17px;
+    top:5%;
+    left: 10%;
+}
+#texto-01{
+    top:5%;
+    left: 10%;
+}
+#texto-02{
+    top:15%;
+    left: 10%;
+}
+#texto-03{
+    top:25%;
+    left: 10%;
+}
+#texto-04{
+    top:50%;
+    left: 10%;
+}
+#texto-05{
+    position: absolute;
+    top:60%;
+    left: 10%;
+}
+#texto-06{
+    position: absolute;
+    top:75%;
+    left: 10%;
+}
+#texto-07{
+    position: absolute;
+    top:90%;
+    left: 10%;
+}
+.cap {
+    font-size: 24px;
+}  
+}
+    
+@media only screen and (max-width: 800px) {
+.topo {
+    top: -125px;
+}
+.flickity-viewport {
+    height: 30vh !important;
+}
+}
+    
+@media only screen and (max-width: 700px) {
+.content p{
+    width: 85%
+}
+
+.topo {
+    width: 120%;
+    right: -10%;
+}
+.flickity-viewport is-pointer-down{
+    height: 25vh !important;
+}
+.cap {
+    font-size: 23px;
+}  
+}
+    
+@media only screen and (max-width: 600px) {
+    .topo {
+    width: 120%;
+    right: -10%;
+}
+.flickity-viewport is-pointer-down{
+    height: 25vh !important;
+}
+}
+
+    
+@media only screen and (max-width: 500px) {
+
+.flickity-viewport is-pointer-down{
+    height: 25vh;
+}
+.topo {
+    top: -35%;
+    width: 190%;
+    right: -32%;
+}
+#logo{
+    font-size: 14px;
+    line-height: 1.7;
+}
+h1{padding:25px 0px;}
+h1 span{display:block;}
+
+section {max-width: 100%;}
+.content{
+    width:100%;
+}
+.flickity-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+} 
+.gallery-cell {
+    width: 75%;
+    height: 400px;
+    margin-right: 10px;
+}
+.gallery-cell img {
+    position: relative;
+}
+.flip-card-3D-wrapper {
+    width: 80%;
+    max-width: 200px;
+    height: 100%;
+    min-height: 285px;
+    position: relative;
+    -o-perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    margin: 0 auto;
+}    
+.flip-card-3D-wrapper img{
+    width: 100%;
+    height: 100%;
+}
+.cromos {
+    width: 100%;
+    height: 210px;
+    display: block;
+}
+.flickity-viewport{
+    height: 50vh !important;
+}
+.conteudo {
+    height: 45vh;
+}
+.txt-geral p{
+    font-size: 16px;
+    top:5%;
+    left: 5%;
+}
+#texto-01{
+    top:5%;
+    left: 5%;
+}
+#texto-02{
+    top:15%;
+    left: 5%;
+}
+#texto-03{
+    top:25%;
+    left: 5%;
+}
+#texto-04{
+    top:50%;
+    left: 5%;
+}
+#texto-05{
+    position: absolute;
+    top:60%;
+    left: 5%;
+}
+#texto-06{
+    position: absolute;
+    top:75%;
+    left: 5%;
+}
+#texto-07{
+    position: absolute;
+    top:90%;
+    left: 5%;
+}
+.cap {
+    font-size: 22px;
+}
+.wrapper {
+    height: auto;
+}
+}
+    
+@media only screen and (max-width: 412px) {
+
+.flickity-viewport{
+    height: 50vh !important;
+}
+}
+    
+@media only screen and (max-width: 390px) {
+
+}
+    
+@media only screen and (max-width: 393px) {
+
+}
+    
+@media only screen and (max-width: 375px) {
+h1{font-size:20px;}
+label{padding:5px 0px;
+    }
+#logo{
+    font-size: 20px;
+    }
+nav{
+    top:47px;
+    }
+.content{
+    width:100%;
+}
+
+}
+    
+
+@media only screen and (max-width: 360px) {
+
+}
+    
+@media only screen and (max-width: 280px) {
+
+}
+
+    
+    
+    
+    
+
+    
+
+</style>
+
+    
+    
+    
+    
+    
+<div class="infog-body" style="">    
+<header class="menu" >
+<div>
+<a id="logo" target="_blank">Cracked Octopus Club</a>
+<label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
+<input type="checkbox" id="toggle-1">
+
+<nav>
+<ul>
+<!--<li><a href="#logo"><i class="icon-home"></i>Home</a></li>-->
+<li><a href="#home"><i class=""></i>Home</a></li>
+<li><a href="#portfolio"><i class=""></i>Portfolio</a></li>
+<li><a href="#services"><i class=""></i>Road Map</a></li>
+<li><a href="#FAQ"><i class=""></i>FAQ</a></li>
+<li><a href="#gallery"><i class=""></i>Terms &amp; Conditions</a></li>
+</ul>
+</nav>
+
+</div>
+</header>   
+  
+<div id="inicio"></div>
+    
+<div class="redes">
+<br>   
+<div class="container">
+    <div>
+    <p class="data" style="font-size: 25px;line-height: 25px;">Coming</p>
+    <p class="data">February 12</p><br>
+</div>
+  <div class="row">
+    
+    <div class="col col-xs-6 col-sm-4 col-md-3 p-2">
+      <a href="https://www.twitter.com/CrackedOctopusC" class="btn btn-social btn-twitter"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+    </div>
+    
+    <div class="col col-xs-6 col-sm-4 col-md-3 p-2">
+      <a href="https://www.instagram.com/crackedoctopusclub/" class="btn btn-social btn-instagram"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+    </div>
+    
+  </div>
+</div>
+    <!-- redes sociais  -->
+
+</div>
+<section id="home" class="content conteudo" >
+
+<br><br>
+
+    
+<svg class="topo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1500 800" style="enable-background:new 0 0 1500 800;position: absolute" xml:space="preserve">
+    <style type="text/css">
+        .st0{fill:#181B2D;}
+        .st1{opacity:0.15;fill:#384190;}
+        .st2{fill:#384190;}
+
+        :root {
+      --backgroundColor: rgba(255, 255, 255, 0);
+      --firstColor: #384190;
+      --secondColor:  #384190;
+      --thirdColor: rgba(255, 255, 255, 0);
+      --fourthColor: #384190;
+      --dropShadowColor: rgba(255, 255, 255, 0);
+    }
+
+    #agua {
+      transform-origin: 500px 755px;
+      animation: move 14s ease-in-out infinite;
+    }
+
+    @keyframes move {
+      0%   { opacity: 1; transform: scaleY(1.1)   translate(0, 0) rotate(0); fill: var(--firstColor);}
+      25%  { opacity: 1; transform: scaleY(1) translate(0vw, -2vh) rotate(0deg); fill: var(--firstColor);}
+      50%  { opacity: 1; transform: scaleY(0.9) translate(0vw, -2vh) rotate(0deg); fill: var(--thirdColor);}
+      75%  { opacity: 1; transform: scaleY(1.1) translate(0, -1vh) rotate(0deg); fill: var(--firstColor);}
+      100% { opacity: 1; transform: scaleY(1)   translate(0, -1vh) rotate(0); fill: var(--firstColor);}
+    }
+
+        .castle{
+           width: 100%;
+    height: auto;
+    bottom: 0%;
+    margin-bottom: 0;
+        }
+        
+    </style>
+     
+
+    
+      
+<path fill="#384190">
+	<animate  repeatCount="indefinite" attributeName="d" dur="14s"
+             
+	values="M-500,755.5c106.7-12.1,268.3-42.3,445.2-27.2c176.9,15.1,246.2,27.2,451.9,27.2s294.2-7.4,426.9-7.4
+		s203.8,7.4,365.4,7.4s290.4-33.2,425-33.2s385.6,33.2,385.6,33.2V810H-500V755.5z;
+	
+	M-500,628.8c106.7-23.1,268.3-80.8,445.2-51.9c176.9,28.8,246.2,51.9,451.9,51.9S691.3,467.3,824,467.3
+		s203.8,161.5,365.4,161.5s290.4-63.5,425-63.5s385.6,63.5,385.6,63.5V800H-500V628.8z;
+	
+	M-500,755.5c106.7-12.1,268.3-42.3,445.2-27.2c176.9,15.1,246.2,27.2,451.9,27.2s294.2-7.4,426.9-7.4
+		s203.8,7.4,365.4,7.4s290.4-33.2,425-33.2s385.6,33.2,385.6,33.2V810H-500V755.5z"/>
+</path> 
+    
+    
+<defs>
+    <path id="SVGID_1_" d="M-500,755.5c106.7-12.1,268.3-42.3,445.2-27.2c176.9,15.1,246.2,27.2,451.9,27.2s294.2-7.4,426.9-7.4
+        s203.8,7.4,365.4,7.4s290.4-33.2,425-33.2s385.6,33.2,385.6,33.2V80.6H-500V755.5z"/>
+</defs>
+<clipPath id="SVGID">
+    <use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+</clipPath>
+<g style="clip-path:url(#SVGID);">
+        <image style="overflow:visible;" width="682" height="656" xlink:href="https://yosephalves.github.io/CrackedOctopusClub/img/96A381BDB92D6C6B.png"  transform="matrix(-1 0 0 1 1401.1479 123.0007)">
+    </image>
+</g>
+    
+    
+<path id="agua">
+	<animate  repeatCount="indefinite" attributeName="d" dur="14s"
+             
+	values="M-500,755.5c106.7-12.1,268.3-42.3,445.2-27.2c176.9,15.1,246.2,27.2,451.9,27.2s294.2-7.4,426.9-7.4
+		s203.8,7.4,365.4,7.4s290.4-33.2,425-33.2s385.6,33.2,385.6,33.2V810H-500V755.5z;
+	
+	M-500,628.8c106.7-23.1,268.3-80.8,445.2-51.9c176.9,28.8,246.2,51.9,451.9,51.9S691.3,467.3,824,467.3
+		s203.8,161.5,365.4,161.5s290.4-63.5,425-63.5s385.6,63.5,385.6,63.5V800H-500V628.8z;
+	
+	M-500,755.5c106.7-12.1,268.3-42.3,445.2-27.2c176.9,15.1,246.2,27.2,451.9,27.2s294.2-7.4,426.9-7.4
+		s203.8,7.4,365.4,7.4s290.4-33.2,425-33.2s385.6,33.2,385.6,33.2V810H-500V755.5z"/>
+</path>
+    
+    
+
+</svg>
+
+</section>
+
+<div id="portfolio" style="height: 0px" ></div>
+<section id="section-portfolio" class="content" >
+<div class="gallery js-flickity carousel" data-flickity-options='{ "wrapAround": true, "autoPlay": true  }'>
+    <div class="gallery-cell">
+        <img class="" src="http://www.crackedoctopusclub.com/img/5928.png"/>
+    </div>
+    
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/7024.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/5732.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/5780.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/9.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/7431.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/74.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/6094.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/6839.png"/></div>
+    <div class="gallery-cell"><img class="" src="http://www.crackedoctopusclub.com/img/6662.png"/></div>
+</div>
+<br><br>
+<h2 class="texto">Why do we exist?</h2>
+<p class="texto texto-1">Cracked Octopus Club is a collection of 8,888 Octopus NFT's. The COC Team want's to use the money gathered from the Sales, to develop a Crypto Battle Royale with a NFT Marketplace. The goal is to create a game that makes you, the player, active and passive income with our Crypto Game. You are not a gamer? It's fine, passive income is here for that reason. We hope to have you onboard for our Adventure. Ideas are flying of the shelves! You can tell us your's! By Rafael &amp; Joseph Alves</p>
+  
+<br><br>  
+<iframe style="margin: 0 auto; text-align: center;display: block" src="https://discord.com/widget?id=759742588902309908&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+</section>
+
+    
+<div id="services" style="background-color: #384190"></div>     
+
+<section id="first-section" class="content" >
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 3000 1606.2" style="enable-background:new 0 0 3000 1606.2;    position: absolute;left: -1202px;min-height: 1606.2px;float: left;display: block; top: -35px" xml:space="preserve">
+        <style type="text/css">
+            .castelost0{fill:url(#SVGID_1_);}
+            .castelost1{fill:url(#SVGID_00000052090682209998881420000017299551941201729666_);}
+            .castelost2{fill:url(#SVGID_00000136395219258013513440000013926902563704121232_);}
+            .castelost3{fill:url(#SVGID_00000160174747487659492520000001844485696999476367_);}
+            .castelost4{fill:#FFFFFF;}
+            .castelost5{    font-family: 'Poppins', Consolas, monospace;}
+            .castelost6{font-size:20px;}
+            .castelost11{fill:#FFFFFF;}
+            #luz{opacity: 1; animation: luz 2s infinite linear forwards; animation-delay:0s; -webkit-animation-delay:0s; transform-origin: 1388.6px 873.4px}
+
+            @keyframes luz{
+                0%{opacity: 0.5; transform:scale(1)}
+                30%{opacity: 0.8; transform:scale(1.5)}
+                100%{opacity: 0.5; transform:scale(1)}} 
+
+            #luz1{opacity: 1; animation: luz1 4s infinite linear forwards; animation-delay:0s; -webkit-animation-delay:0s; transform-origin: 1719.4px 762.8px}
+
+            @keyframes luz1{
+                0%{opacity: 0.5; transform:scale(0.7)}
+                30%{opacity: 0.8; transform:scale(1.6)}
+                100%{opacity: 0.5; transform:scale(0.7)}} 
+
+            #luz2{opacity: 1; animation: luz2 3s infinite linear forwards; animation-delay:0s; -webkit-animation-delay:0s; transform-origin: 1730.9px 1397.9px}
+
+            @keyframes luz2{
+                0%{opacity: 0.5; transform:scale(0.8)}
+                60%{opacity: 0.8; transform:scale(1.1)}
+                100%{opacity: 0.5; transform:scale(0.8)}}
+
+
+        .bolha1{
+            opacity: 0.5;
+            animation: bolha 2s linear infinite forwards;
+            animation-delay: 0s;
+        }       
+        .bolha2{
+            opacity: 0.5;
+            animation: bolha 1.6s linear infinite forwards;
+            animation-delay: 0.3s;
+        }       
+        .bolha3{
+            opacity: 0.5;
+            animation: bolha 2s linear infinite forwards;
+            animation-delay: 0.6s;
+        }       
+        .bolha4{
+            opacity: 0.5;
+            animation: bolha 1s linear infinite forwards;
+            animation-delay: 0.9s;
+        }       
+        .bolha5{
+            opacity: 0.5;
+            animation: bolha 2s linear infinite forwards;
+            animation-delay: 0.11s;
+        }       
+        .bolha6{
+            opacity: 0.5;
+            animation: bolha 1s linear infinite forwards;
+            animation-delay: 0.15s;
+        }       
+        .bolha7{
+            opacity: 0.5;
+            animation: bolha 2s linear infinite forwards;
+            animation-delay: 0.18s;
+        }            
+
+        @keyframes bolha {
+            0% { transform: translateY(0px); opacity: 0.5; }
+            100% { transform: translateY(-100px);  opacity: 0;}
+        }  
+
+        </style>
+
+        <g >
+            <g id="luz">
+                <radialGradient id="SVGID_c" cx="1388.5819" cy="873.3658" r="70.3968" gradientUnits="userSpaceOnUse">
+                    <stop  offset="4.399957e-02" style="stop-color:#9799A1"/>
+                    <stop  offset="0.1272" style="stop-color:#80828C"/>
+                    <stop  offset="0.3246" style="stop-color:#4D505E"/>
+                    <stop  offset="0.5382" style="stop-color:#373A4A;stop-opacity:0.6838"/>
+                    <stop  offset="0.8213" style="stop-color:#202335;stop-opacity:0.2646"/>
+                    <stop  offset="1" style="stop-color:#181B2D;stop-opacity:0"/>
+                </radialGradient>
+                <circle class="luz" style="fill:url(#SVGID_c);" cx="1388.6" cy="873.4" r="70.4"/>
+            </g>
+
+
+            <g id="luz1">
+                <radialGradient id="SVGID_a" cx="1719.4055" cy="762.7877" r="70.3968" gradientUnits="userSpaceOnUse">
+                    <stop  offset="4.399957e-02" style="stop-color:#9799A1"/>
+                    <stop  offset="0.1272" style="stop-color:#80828C"/>
+                    <stop  offset="0.3246" style="stop-color:#4D505E"/>
+                    <stop  offset="0.5382" style="stop-color:#373A4A;stop-opacity:0.6838"/>
+                    <stop  offset="0.8213" style="stop-color:#202335;stop-opacity:0.2646"/>
+                    <stop  offset="1" style="stop-color:#181B2D;stop-opacity:0"/>
+                </radialGradient>
+                <circle style="fill:url(#SVGID_a);" cx="1719.4" cy="762.8" r="70.4"/>
+            </g>
+
+
+            <g id="luz2">
+                <radialGradient id="SVGID_b" cx="1730.8986" cy="1397.9305" r="70.3968" gradientUnits="userSpaceOnUse">
+                    <stop  offset="4.399957e-02" style="stop-color:#9799A1"/>
+                    <stop  offset="0.1272" style="stop-color:#80828C"/>
+                    <stop  offset="0.3246" style="stop-color:#4D505E"/>
+                    <stop  offset="0.5382" style="stop-color:#373A4A;stop-opacity:0.6838"/>
+                    <stop  offset="0.8213" style="stop-color:#202335;stop-opacity:0.2646"/>
+                    <stop  offset="1" style="stop-color:#181B2D;stop-opacity:0"/>
+                </radialGradient>
+                <circle style="fill:url(#SVGID_b);" cx="1730.9" cy="1397.9" r="70.4"/>
+            </g>
+
+        </g>	
+
+
+        <circle class="bolha7 castelost11" cx="1400" cy="1250" r="1.3"/>
+        <circle class="bolha6 castelost11" cx="1400" cy="1250" r="1.3"/>
+        <circle class="bolha5 castelost11" cx="1400" cy="1250" r="1.3"/>
+        <circle class="bolha4 castelost11" cx="1400" cy="1250" r="1.3"/>
+        <circle class="bolha3 castelost11" cx="1400" cy="1250" r="1.3"/>
+        <circle class="bolha2 castelost11" cx="1400" cy="1250" r="1.3"/>
+        <circle class="bolha1 castelost11" cx="1400" cy="1250" r="1.3"/>
+        <circle class="bolha7 castelost11" cx="1550" cy="800" r="1.3"/>
+        <circle class="bolha6 castelost11" cx="1550" cy="800" r="1.3"/>
+        <circle class="bolha5 castelost11" cx="1550" cy="800" r="1.3"/>
+        <circle class="bolha4 castelost11" cx="1550" cy="800" r="1.3"/>
+        <circle class="bolha3 castelost11" cx="1550" cy="800" r="1.3"/>
+        <circle class="bolha2 castelost11" cx="1550" cy="800" r="1.3"/>
+        <circle class="bolha1 castelost11" cx="1550" cy="800" r="1.3"/>
+        <circle class="bolha7 castelost11" cx="1450" cy="350" r="1.3"/>
+        <circle class="bolha6 castelost11" cx="1450" cy="350" r="1.3"/>
+        <circle class="bolha5 castelost11" cx="1450" cy="350" r="1.3"/>
+        <circle class="bolha4 castelost11" cx="1450" cy="350" r="1.3"/>
+        <circle class="bolha3 castelost11" cx="1450" cy="350" r="1.3"/>
+        <circle class="bolha2 castelost11" cx="1450" cy="350" r="1.3"/>
+        <circle class="bolha1 castelost11" cx="1450" cy="350" r="1.3"/>  
+
+        </svg>
+    <div class="wrapper">    
+        
+        <div class="castelo" >
+            <div>
+                <img src="http://www.crackedoctopusclub.com/img/27835E68B084CE8C.png">
+                
+            </div>
+      
+
+            <div class="block-left animatable fadeInUp txt-geral" id="texto-01" >
+                <b class="texto" style="font-size: 33px; text-shadow: -2px 2px 8px #0a0f1d;">Road Map</b>
+            </div>
+            <div class="block-left animatable fadeInUp txt-geral" id="texto-02">
+                <p class="texto texto-leg"><b class="cap">20%</b> - One Lucky Octa Holder<br>gets a 5 SOL airdrop.</p>
+            </div>
+            <div class="block-left animatable fadeInUp txt-geral"  id="texto-03">
+                <p class="texto texto-leg"><b class="cap">40% </b>- We release the Closed Octas.<br>5 Octas (tokens held back from the sale)<br>are airdropped to random Octaholders.</p>
+            </div>
+            <div class="block-rigth animatable fadeInUp txt-geral" id="texto-04">
+                <p class="texto texto-leg"><b class="cap">60%</b> - Members-Exclusive COC<br>Merch Store gets unlocked,<br>featuring Limited Edition tees,<br> hoodies, and other goodies.</p>
+            </div>
+            <div class="block-rigth animatable fadeInUp txt-geral" id="texto-05">
+                <p class="texto texto-leg"><b class="cap">80%</b> - Octa Holders get randomly<br>selected for a 50 SOL airdrop.</p>
+            </div>
+            <div class="block-rigth animatable fadeInUp txt-geral" id="texto-06">
+                <p class="texto texto-leg"><b class="cap">100%</b> - The Beach Fridge gets<br>fixed. Kraken Octas (NFT<br>Breeding) come to life.</p>
+            </div>
+            <div class="block-rigth animatable fadeInUp txt-geral" id="texto-07">
+                <p class="texto texto-leg">Road Map V2 gets initiated.<br>Battle Royale development<br>gets iniciated</p>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+    
+
+
+
+<section class="content final">
+<br id="FAQ"><br>
+
+<h2 class="texto">FAQ <i>(Frequently Asked Questions)</i></h2>
+<p class="texto animatable fadeInUp">
+    <b>When is the Mint going to happen and where?</b><br>
+    February 2022 at our Website.<br><br>
+    <b>What is the Blockchain and for how much will it be sold?</b><br>
+    Collection will be minted for 1.2 Sol (Pre-sale) and 1.4 Sol (General sale).<br><br>
+    <b>Why 8888 NFTs?</b><br>
+    Octopus have 8 arms.<br><br>
+    <b>How many traits do we have?</b><br>
+    One hundred and twelve total (112). <br><br>
+    <b>What are the utilities of this NFT if bought?</b><br>
+    The money gathered from the sold NFTs will be used to Develop a Battle Royale with a NFT Marketplace. Any holders will have access to the game in Alpha and Beta state. The NFTs will also be a Entry Card for the Beach Club (real life club), grant access to VIP Merch and NFT/SOL Giveaways. You will too unlock secret and unique objects in our future game. 
+</p>    
+<br><br><br>
+<div style="padding-top: 0px; padding-bottom: 0px; max-width: 1200px; margin: 0 auto;">
+        <div style="position: relative; max-width: 1200px; margin: 0 auto">
+            <p class="infog-subtitulo" style="margin-top: 20px; margin-bottom: 10px;"></p> 
+                <div style="max-width: 1200px; margin: 0 auto; width: 100%">
+                <div class="cromos">
+                    <div class="flip-card-3D-wrapper">
+                        <div id="flip-card" class="flip-card">
+                            <div class="flip-card-front"><p></p>
+                                <button id="flip-card-btn-turn-to-back" class="flip-card-btn-turn-to-back"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/6839.png" />
+                            </div>
+                            <div class="flip-card-back"><p></p>
+                                <button id="flip-card-btn-turn-to-front" class="flip-card-btn-turn-to-front"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/rar-6839.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cromos">
+                    <div class="flip-card-3D-wrapper">
+                        <div id="flip-card1" class="flip-card">
+                            <div class="flip-card-front"><p></p>
+                                <button id="flip-card-btn-turn-to-back1" class="flip-card-btn-turn-to-back"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/1033.png" />
+                            </div>
+                            <div class="flip-card-back"><p></p>
+                                <button id="flip-card-btn-turn-to-front1" class="flip-card-btn-turn-to-front"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/rar-1033.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cromos">
+                    <div class="flip-card-3D-wrapper">
+                        <div id="flip-card2" class="flip-card">
+                            <div class="flip-card-front"><p></p>
+                                <button id="flip-card-btn-turn-to-back2" class="flip-card-btn-turn-to-back"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/5376.jpeg" />
+                            </div>
+                            <div class="flip-card-back"><p></p>
+                                <button id="flip-card-btn-turn-to-front2" class="flip-card-btn-turn-to-front"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/rar-5376.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cromos">
+                    <div class="flip-card-3D-wrapper">
+                        <div id="flip-card3" class="flip-card">
+                            <div class="flip-card-front"><p></p>
+                                <button id="flip-card-btn-turn-to-back3" class="flip-card-btn-turn-to-back"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/7431.png" />
+                            </div>
+                            <div class="flip-card-back"><p></p>
+                                <button id="flip-card-btn-turn-to-front3" class="flip-card-btn-turn-to-front"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/rar-7431.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cromos">
+                    <div class="flip-card-3D-wrapper">
+                        <div id="flip-card4" class="flip-card">
+                            <div class="flip-card-front"><p></p>
+                                <button id="flip-card-btn-turn-to-back4" class="flip-card-btn-turn-to-back"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/3480.jpeg" />
+                            </div>
+                            <div class="flip-card-back"><p></p>
+                                <button id="flip-card-btn-turn-to-front4" class="flip-card-btn-turn-to-front"></button>
+                                <img src="http://www.crackedoctopusclub.com/img/rar-3480.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+    
+    
+<div style="padding-top: 50px;" class="final">
+<img style="width: 40px;margin: 0 auto; text-align: center;display: block;" src="http://www.crackedoctopusclub.com/img/logo-wht.png">
+<br> 
+<section id="gallery" class="content">
+<h2>Terms &amp; Conditions</h2>
+<p class="texto animatable fadeInUp"> Cracked Octopus Club is a collection of digital artworks (NFTs) running on the Solana network. This website is only an interface allowing participants to exchange digital collectibles. Users are entirely responsible for the safety and management of their own private Solana wallets and validating all transactions and contracts generated by this website before approval. Furthermore, as the Cracked Octopus Club smart contract runs on the Solana network, there is no ability to undo, reverse, or restore any transactions.
+This website and its connected services are provided “as is” and “as available” without warranty of any kind. By using this website you are accepting sole responsibility for any and all transactions involving Cracked Octopus Club digital collectibles.</p><br>
+<p class="texto animatable fadeInUp" >OWNERSHIP</p>
+<p class="texto animatable fadeInUp" >
+<b>I.</b> You Own the NFT. Each Cracked Octa is an NFT on the Solana blockchain. When you purchase an NFT, you own the underlying Octa, but we still reserve the solely royalty rigths of the Art, completely. Ownership of the NFT is mediated entirely by the Smart Contract and the Solana Network: at no point may we seize, freeze, or otherwise modify the ownership of any Cracked Octa.</p><br>
+<p class="texto animatable fadeInUp" >
+<b>II.</b> Personal Use. Subject to your continued compliance with these Terms, Duos Verse grants you a worldwide, non-royalty free but free license to use, copy, and display the purchased Art, along with any extensions that you choose to create or use, solely for the following purposes: (i) for your own personal, non-commercial use; (ii) as part of a marketplace that permits the purchase and sale of your Cracked Octa / NFT, provided that the marketplace cryptographically verifies each Cracked Octa owner’s rights to display the Art for their Cracked Octa to ensure that only the actual owner can display the Art; or (iii) as part of a third party website or application that permits the inclusion, involvement, or participation of your Cracked Octa, provided that the website/application cryptographically verifies each Cracked Octa owner’s rights to display the Art for their Cracked Octa to ensure that only the actual owner can display the Art, and provided that the Art is no longer visible once the owner of the Cracked Octa leaves the website/application.</p><br>
+<p class="texto animatable fadeInUp" >
+<b>III.</b> Commercial Use. Subject to your continued compliance with these Terms, Duos Verse grants you an unlimited, worldwide license to use, copy, and display the purchased Art for the purpose of creating derivative works based upon the Art (“Commercial Use”). Examples of such Commercial Use would e.g. be the use of the Art to produce and sell merchandise products (T-Shirts etc.) displaying copies of the Art. For the sake of clarity, nothing in this Section will be deemed to restrict you from (i) owning or operating a marketplace that permits the use and sale of Cracked Octas generally, provided that the marketplace cryptographically verifies each Cracked Octa owner’s rights to display the Art for their Octa to ensure that only the actual owner can display the Art; (ii) owning or operating a third party website or application that permits the inclusion, involvement, or participation of Cracked Octas generally, provided that the third party website or application cryptographically verifies each Cracked Octa owner’s rights to display the Art for their Cracked Octa to ensure that only the actual owner can display the Art, and provided that the Art is no longer visible once the owner of the Purchased Cracked Octa leaves the website/application; or (iii) earning revenue from any of the foregoing.</p><br>
+</section>
+    
+    
+<hr style="display: block; height: 1px;
+    border: 0; border-top: 1px solid gray; margin: 0em 0; padding: 0;">
+<footer class="" style="color: #626262;max-width: 700px;margin: 0 auto">
+    <hr>
+    <div style="text-align: center; margin: 0 auto;display: inline-flex;">
+        <div style="">    
+            <a href="https://www.linkedin.com/in/josecmalves/"> <img style="max-width: 90%;margin-bottom: 7px" src="http://www.crackedoctopusclub.com/img/joseph.png">
+                <p  style="text-align: center;margin: 0 auto"><b>Joseph</b><br>Web Developer and the NFT Artist</p></a>
+        </div>
+
+        <div style="">    
+            <a href="https://www.instagram.com/rapha.alvesf/"> <img style="max-width: 90%; margin-bottom: 7px"src="http://www.crackedoctopusclub.com/img/rafa.png">
+            <p  style="text-align: center; margin: 0 auto"><b>Rafael</b><br>Marketing e Web Developer</p></a>
+         </div>
+    </div>
+</footer>
+    
+<div style="text-align: center; margin: 0 auto;max-width: 200px">
+    <div style="">    
+        <a href="https://nftcalendar.io/event/cracked-octopus-club-1/"> <img style="max-width: 90%;margin-bottom: 7px" src="http://www.crackedoctopusclub.com/img/nft-calendar-transparent.png"></a>
+    </div>
+</div>
+    
+</div>
+</div>
+
+    
+    
+    
+    
+<script>
+
+    
+    
+    
+document.addEventListener('DOMContentLoaded', function(event) {
+
+  document.getElementById('flip-card-btn-turn-to-back').style.visibility = 'visible';
+  document.getElementById('flip-card-btn-turn-to-front').style.visibility = 'visible';
+
+  document.getElementById('flip-card-btn-turn-to-back').onclick = function() {
+  document.getElementById('flip-card').classList.toggle('do-flip');
+  };
+
+  document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
+  document.getElementById('flip-card').classList.toggle('do-flip');
+  };  
+        
+document.getElementById('flip-card-btn-turn-to-back1').style.visibility = 'visible';
+  document.getElementById('flip-card-btn-turn-to-front1').style.visibility = 'visible';
+
+  document.getElementById('flip-card-btn-turn-to-back1').onclick = function() {
+  document.getElementById('flip-card1').classList.toggle('do-flip');
+  };
+
+  document.getElementById('flip-card-btn-turn-to-front1').onclick = function() {
+  document.getElementById('flip-card1').classList.toggle('do-flip');
+  };         
+      
+         
+document.getElementById('flip-card-btn-turn-to-back2').style.visibility = 'visible';
+  document.getElementById('flip-card-btn-turn-to-front2').style.visibility = 'visible';
+
+  document.getElementById('flip-card-btn-turn-to-back2').onclick = function() {
+  document.getElementById('flip-card2').classList.toggle('do-flip');
+  };
+
+  document.getElementById('flip-card-btn-turn-to-front2').onclick = function() {
+  document.getElementById('flip-card2').classList.toggle('do-flip');
+  };
+            
+            document.getElementById('flip-card-btn-turn-to-back3').style.visibility = 'visible';
+  document.getElementById('flip-card-btn-turn-to-front3').style.visibility = 'visible';
+
+  document.getElementById('flip-card-btn-turn-to-back3').onclick = function() {
+  document.getElementById('flip-card3').classList.toggle('do-flip');
+  };
+
+  document.getElementById('flip-card-btn-turn-to-front3').onclick = function() {
+  document.getElementById('flip-card3').classList.toggle('do-flip');
+  };
+            
+            document.getElementById('flip-card-btn-turn-to-back4').style.visibility = 'visible';
+  document.getElementById('flip-card-btn-turn-to-front4').style.visibility = 'visible';
+
+  document.getElementById('flip-card-btn-turn-to-back4').onclick = function() {
+  document.getElementById('flip-card4').classList.toggle('do-flip');
+  };
+
+  document.getElementById('flip-card-btn-turn-to-front4').onclick = function() {
+  document.getElementById('flip-card4').classList.toggle('do-flip');
+  };
+
+});
+</script>
+    
+<script>
+/*
+Acknowledgements: borrowed from Bramus! at CodePen
+Source: http://codepen.io/bramus/pen/yikfd
+*/
+
+jQuery(function($) {
+  
+  // Function which adds the 'animated' class to any '.animatable' in view
+  var doAnimations = function() {
+    
+    // Calc current offset and get all animatables
+    var offset = $(window).scrollTop() + $(window).height(),
+        $animatables = $('.animatable');
+    
+    // Unbind scroll handler if we have no animatables
+    if ($animatables.size() == 0) {
+      $(window).off('scroll', doAnimations);
+    }
+    
+    // Check all animatables and animate them if necessary
+		$animatables.each(function(i) {
+       var $animatable = $(this);
+			if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+        $animatable.removeClass('animatable').addClass('animated');
+			}
+    });
+
+	};
+  
+  // Hook doAnimations on scroll, and trigger a scroll
+	$(window).on('scroll', doAnimations);
+  $(window).trigger('scroll');
+
+});    
+    
+    
+</script>
+    
+    
+    
+    
+<script>
+    !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+      if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  </script>
+
+<script type="text/javascript">
+    (function() {
+      var po = document.createElement('script');
+      po.type = 'text/javascript';
+      po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(po, s);
+        
+    }
+    )();
+    
+    
+    
+    
+  </script>
+    
+<!--    ATÉ AQUI-->
+ <script src="/static/js/bundle.js"></script><script src="/static/js/vendors~main.chunk.js"></script><script src="/static/js/main.chunk.js"></script>
+</body>
+
+</html>
